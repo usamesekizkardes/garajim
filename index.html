@@ -552,7 +552,6 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
       <button role="tab" type="button" data-seg="s-arac" aria-selected="true"><i data-ic="car"></i>Araç</button>
       <button role="tab" type="button" data-seg="s-sarj" aria-selected="false"><i data-ic="bolt"></i>Şarj</button>
       <button role="tab" type="button" data-seg="s-ag" aria-selected="false"><i data-ic="pin"></i>İstasyonlar</button>
-      <button role="tab" type="button" data-seg="s-maliyet" aria-selected="false"><i data-ic="coin"></i>Maliyet</button>
       <button role="tab" type="button" data-seg="s-prime" aria-selected="false"><i data-ic="shield"></i>BMW Prime</button>
     </div>
 
@@ -580,6 +579,22 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
         </ul>
       </div>
       <div class="alert"><i data-ic="warn"></i><p><strong>Evdeki istasyonda aracı gece bırakma.</strong> Tunçmatik, şarj bittikten 15 dakika sonra AC'de dakikası 4 TL, DC'de 10 TL bekleme ücreti alıyor.</p></div>
+      <div class="card">
+        <h2 class="hd"><i data-ic="coin"></i>Yıllık enerji maliyeti</h2>
+        <p class="note" style="margin:2px 0 14px">16.000 km/yıl, nereden şarj ettiğine göre</p>
+        <div class="bars">
+          <div class="bar"><div class="top2"><span class="lic"><i data-ic="building"></i>İşyeri wallbox'u</span><b>~17.200 TL</b></div><div class="track"><div class="fill" style="width:19.3%"></div></div></div>
+          <div class="bar"><div class="top2"><span class="lic"><i data-ic="home"></i>Evde Trugo AC</span><b>31.000 TL</b></div><div class="track"><div class="fill" style="width:34.8%"></div></div></div>
+          <div class="bar"><div class="top2"><span class="lic"><i data-ic="home"></i>Evde Tunçmatik AC</span><b>34.300 TL</b></div><div class="track"><div class="fill" style="width:38.5%"></div></div></div>
+          <div class="bar"><div class="top2"><span class="lic"><i data-ic="bolt"></i>Tamamen hızlı şarj</span><b>40.600 TL</b></div><div class="track"><div class="fill" style="width:45.5%"></div></div></div>
+          <div class="bar"><div class="top2"><span class="lic"><i data-ic="fuel"></i>Benzinli 320i</span><b>89.100 TL</b></div><div class="track"><div class="fill ref" style="width:100%"></div></div></div>
+        </div>
+        <p class="note" style="margin-top:12px">İşyeri wallbox'u için ~5,5 TL/kWh ticari tarife varsayıldı.</p>
+      </div>
+      <div class="mini">
+        <div class="card tight"><div class="label lic"><i data-ic="receipt"></i>MTV 2026</div><div class="num">~15.200 TL</div><p class="note">151–180 kW, 4 yaş</p></div>
+        <div class="card tight"><div class="label lic"><i data-ic="shield"></i>Kasko</div><div class="num">Teklif al</div><p class="note">Batarya ve kayar kasa çekici teminatı sor</p></div>
+      </div>
     </div>
 
     <div id="s-ag" class="stack" hidden>
@@ -603,25 +618,6 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
         <div class="appi"><i data-ic="phone"></i><strong>Tesla</strong><span>Supercharger için</span></div>
         <div class="appi"><i data-ic="phone"></i><strong>PlugShare</strong><span>Tüm ağlar tek harita</span></div>
         <div class="appi"><i data-ic="phone"></i><strong>ABRP</strong><span>Uzun yol planı</span></div>
-      </div>
-    </div>
-
-    <div id="s-maliyet" class="stack" hidden>
-      <div class="card">
-        <h2 class="hd"><i data-ic="coin"></i>Yıllık enerji maliyeti</h2>
-        <p class="note" style="margin:2px 0 14px">16.000 km/yıl, nereden şarj ettiğine göre</p>
-        <div class="bars">
-          <div class="bar"><div class="top2"><span class="lic"><i data-ic="building"></i>İşyeri wallbox'u</span><b>~17.200 TL</b></div><div class="track"><div class="fill" style="width:19.3%"></div></div></div>
-          <div class="bar"><div class="top2"><span class="lic"><i data-ic="home"></i>Evde Trugo AC</span><b>31.000 TL</b></div><div class="track"><div class="fill" style="width:34.8%"></div></div></div>
-          <div class="bar"><div class="top2"><span class="lic"><i data-ic="home"></i>Evde Tunçmatik AC</span><b>34.300 TL</b></div><div class="track"><div class="fill" style="width:38.5%"></div></div></div>
-          <div class="bar"><div class="top2"><span class="lic"><i data-ic="bolt"></i>Tamamen hızlı şarj</span><b>40.600 TL</b></div><div class="track"><div class="fill" style="width:45.5%"></div></div></div>
-          <div class="bar"><div class="top2"><span class="lic"><i data-ic="fuel"></i>Benzinli 320i</span><b>89.100 TL</b></div><div class="track"><div class="fill ref" style="width:100%"></div></div></div>
-        </div>
-        <p class="note" style="margin-top:12px">İşyeri wallbox'u için ~5,5 TL/kWh ticari tarife varsayıldı.</p>
-      </div>
-      <div class="mini">
-        <div class="card tight"><div class="label lic"><i data-ic="receipt"></i>MTV 2026</div><div class="num">~15.200 TL</div><p class="note">151–180 kW, 4 yaş</p></div>
-        <div class="card tight"><div class="label lic"><i data-ic="shield"></i>Kasko</div><div class="num">Teklif al</div><p class="note">Batarya ve kayar kasa çekici teminatı sor</p></div>
       </div>
     </div>
 
@@ -657,11 +653,11 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
       </div>
       <div class="card stack" style="gap:6px">
         <h2 class="hd"><i data-ic="check"></i>Prime Plus avantajların</h2>
-        <p class="muted">Yıkamaya ayda bir gitmen bile aboneliği karşılıyor. Aşağıdakiler Prime Plus'ta hakkın; nasıl kullanılacağını görmek için dokun.</p>
+        <p class="muted">Aylık yıkama hakkı tek başına aboneliği karşılıyor. Aşağıdakiler Prime Plus'ta hakkın; nasıl kullanılacağını görmek için dokun.</p>
         <div class="accs">
           <details class="acc">
-            <summary><i data-ic="car"></i><span><b>Ücretsiz araç yıkama</b><span class="note">Anlaşmalı yıkama noktalarında, belirli aralıklarla</span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
-            <div class="acc-b"><p class="acc-h">Nasıl kullanılır</p><ol><li>BMW Türkiye uygulamasında (veya BMW'ni Bul sitesinde) BMW Prime bölümünü aç.</li><li>Yıkama avantajından sana en yakın anlaşmalı noktayı seç ve gün ile saat ayarlayıp rezervasyon yap.</li><li>Randevu saatinde aracınla git; abone olduğun araç ve plaka ile eşleşiyor.</li><li>Kalan hakkını ve hangi noktaların geçerli olduğunu yine Prime bölümünden takip et.</li></ol><p class="note">Kullanıcılar ayda 1 yıkama hakkı bildiriyor. Anlaşmalı firma zaman zaman değişebiliyor (Otovınn, Otokonfor gibi); gitmeden önce listeyi uygulamada kontrol et.</p></div>
+            <summary><i data-ic="car"></i><span><b>Ayda 1 ücretsiz araç yıkama</b><span class="note">Anlaşmalı yıkama noktalarında</span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
+            <div class="acc-b"><p class="acc-h">Nasıl kullanılır</p><ol><li>BMW Türkiye uygulamasında (veya BMW'ni Bul sitesinde) BMW Prime bölümünü aç.</li><li>Yıkama avantajından sana en yakın anlaşmalı noktayı seç ve gün ile saat ayarlayıp rezervasyon yap.</li><li>Randevu saatinde aracınla git; abone olduğun araç ve plaka ile eşleşiyor.</li><li>Kalan hakkını ve hangi noktaların geçerli olduğunu yine Prime bölümünden takip et.</li></ol><p class="note">Anlaşmalı yıkama noktalarının listesini gitmeden önce uygulamada kontrol et.</p></div>
           </details>
           <details class="acc">
             <summary><i data-ic="plug"></i><span><b>5Şarj'da %20 şarj indirimi</b><span class="note">Prime Plus ve Premium'da Eylül 2026 itibarıyla %10'dan %20'ye çıktı</span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
@@ -678,10 +674,6 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
           <details class="acc">
             <summary><i data-ic="bakim"></i><span><b>Ücretsiz periyodik kontrol, silecek değişimi ve sıvı tamamlama</b><span class="note">Yetkili serviste</span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
             <div class="acc-b"><p class="acc-h">Nasıl kullanılır</p><ol><li>Servis randevusu alırken periyodik kontrolü ve silecek değişimini Prime kapsamında istediğini belirt.</li><li>Servise uğradığında cam suyu gibi sıvıların tamamlanmasını iste.</li></ol><p class="note">i4 elektrikli olduğu için motor yağı tamamlama sende geçerli değil.</p></div>
-          </details>
-          <details class="acc">
-            <summary><i data-ic="fuel"></i><span><b>Akaryakıtta %3 indirim</b><span class="note">BMW Prime kartıyla temassız ödemede</span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
-            <div class="acc-b"><p class="acc-h">Nasıl kullanılır</p><ol><li>Akaryakıt istasyonunda ödemeyi BMW Prime kartıyla temassız yap; indirim anında düşer.</li></ol><p class="note">i4'te işine yaramaz. Kartın başka bir araçta kullanılıp kullanılamayacağını Prime hattına sorabilirsin.</p></div>
           </details>
         </div>
         <p class="note">Hak sayıları ve kapsam BMW tarafından değiştirilebiliyor; kesin bilgi BMW Türkiye uygulamasındaki Prime bölümünde. Abonelik için araç Borusan ithalatı olmalı; ithalatçıyı ruhsattan veya serviste doğrula.</p>
