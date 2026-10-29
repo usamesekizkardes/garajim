@@ -445,6 +445,11 @@ details.coll>summary .chev2{width:20px;height:20px;padding:6px;border-radius:999
 .item>.pill{display:none}
 details.coll>summary .chev2{width:22px;height:22px;padding:7px}
 @media (prefers-reduced-motion:reduce){.btn,.ibtn,.tab,.chev2{transition:none}.btn:active,.ibtn:active{transform:none}}
+@keyframes slR{from{transform:translateX(36px);opacity:.25}to{transform:none;opacity:1}}
+@keyframes slL{from{transform:translateX(-36px);opacity:.25}to{transform:none;opacity:1}}
+main.view.sl-r{animation:slR .22s cubic-bezier(.2,.7,.2,1)}
+main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
+.app{overflow-x:clip}
 .data-acts{display:flex;gap:8px;flex-wrap:wrap}
 .data-acts .btn{flex:1}
 #data-msg.err{color:var(--late)}
@@ -970,9 +975,32 @@ paintIcons();
     Object.keys(views).forEach(function(k){views[k].hidden=k!==h});
     tabs.forEach(function(t){t.setAttribute('aria-current',t.getAttribute('href')==='#'+h?'page':'false')});
     $('title').textContent=views[h].getAttribute('data-title');
-    if(cur!==h&&keep!==true)window.scrollTo(0,0);cur=h;
+    var prev=cur;if(cur!==h&&keep!==true)window.scrollTo(0,0);cur=h;
+    if(prev&&prev!==h&&!reduce){var v=views[h],dir=ORDER.indexOf(h)>ORDER.indexOf(prev)?'sl-r':'sl-l';v.classList.remove('sl-r','sl-l');void v.offsetWidth;v.classList.add(dir)}
   }
   window.__route=route;
+  /* yana kaydırarak sekme değiştirme */
+  var ORDER=['garaj','bilgi','once'],reduce=false;try{reduce=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
+  function order(){var can=window.__canOnce?window.__canOnce():null;if(can===null)can=true;return ORDER.filter(function(k){return k!=='once'||can})}
+  function hScroll(el){for(;el&&el!==document.body;el=el.parentElement){if(el.scrollWidth>el.clientWidth+2){var o=getComputedStyle(el).overflowX;if(o==='auto'||o==='scroll')return true}}return false}
+  var sw=null;
+  document.addEventListener('touchstart',function(e){sw=null;if(e.touches.length!==1)return;var t=e.touches[0],el=e.target;
+    if(t.clientX<24||t.clientX>innerWidth-24)return; // Android geri hareketiyle çakışmasın
+    if(document.querySelector('.sheet:not([hidden]),.viewer:not([hidden])'))return;
+    if(!el.closest||!el.closest('main.view')||el.closest('input,textarea,select,[contenteditable],.vh')||hScroll(el))return;
+    sw={x:t.clientX,y:t.clientY,t:Date.now(),v:views[cur],drag:false,lock:null}},{passive:true});
+  document.addEventListener('touchmove',function(e){if(!sw)return;var t=e.touches[0],dx=t.clientX-sw.x,dy=t.clientY-sw.y;
+    if(sw.lock===null){if(Math.abs(dx)<10&&Math.abs(dy)<10)return;sw.lock=Math.abs(dx)>Math.abs(dy)*1.4?'x':'y'}
+    if(sw.lock!=='x'){sw=null;return}
+    var o=order(),i=o.indexOf(cur),edge=(dx>0&&i===0)||(dx<0&&i===o.length-1);
+    sw.dx=dx;if(!reduce){sw.drag=true;sw.v.style.transition='none';sw.v.style.transform='translateX('+(edge?dx*.15:dx*.35)+'px)';sw.v.style.opacity=String(1-Math.min(.35,Math.abs(dx)/900))}},{passive:true});
+  function swEnd(){if(!sw)return;var s=sw;sw=null;
+    if(s.drag){s.v.style.transition='transform .18s ease,opacity .18s ease';s.v.style.transform='';s.v.style.opacity='';setTimeout(function(){s.v.style.transition=''},200)}
+    if(s.lock!=='x'||!s.dx)return;var fast=Math.abs(s.dx)>40&&Date.now()-s.t<300;if(Math.abs(s.dx)<70&&!fast)return;
+    var o=order(),i=o.indexOf(cur),j=i+(s.dx<0?1:-1);if(j<0||j>=o.length)return;
+    if(s.drag){s.v.style.transition='none';s.v.style.transform='';s.v.style.opacity=''}
+    location.hash='#'+o[j]}
+  document.addEventListener('touchend',swEnd,{passive:true});document.addEventListener('touchcancel',function(){if(sw){sw.dx=0;swEnd()}},{passive:true});
   var SUN='M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',MOON='M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z';
   function themeUi(){var d=document.documentElement.getAttribute('data-theme')==='dark';$('theme-ic').setAttribute('d',d?SUN:MOON);$('theme-btn').setAttribute('aria-label',d?'Açık temaya geç':'Koyu temaya geç')}
   themeUi();
