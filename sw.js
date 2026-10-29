@@ -1,5 +1,5 @@
 /* Garajım service worker: uygulamayı çevrimdışı açar. Kayıtların IndexedDB'de, burada değil. */
-var V='garajim-v7',SHELL=['pdf.min.js','pdf.worker.min.js','./','index.html','local.js','manifest.webmanifest','icon-192.png','icon-512.png','icon-maskable.png','favicon.ico'];
+var V='garajim-v8',SHELL=['pdf.min.js','pdf.worker.min.js','./','index.html','local.js','manifest.webmanifest','icon-192.png','icon-512.png','icon-maskable.png','favicon.ico'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(V).then(function(c){return c.addAll(SHELL)}).then(function(){return self.skipWaiting()}))});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(ks){return Promise.all(ks.filter(function(k){return k!==V&&k.indexOf('garajim-')===0}).map(function(k){return caches.delete(k)}))}).then(function(){return self.clients.claim()}))});
 self.addEventListener('fetch',function(e){var r=e.request;if(r.method!=='GET')return;var u=new URL(r.url);
