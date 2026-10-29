@@ -552,6 +552,7 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
       <button role="tab" type="button" data-seg="s-arac" aria-selected="true"><i data-ic="car"></i>Araç</button>
       <button role="tab" type="button" data-seg="s-sarj" aria-selected="false"><i data-ic="bolt"></i>Şarj</button>
       <button role="tab" type="button" data-seg="s-ag" aria-selected="false"><i data-ic="pin"></i>İstasyonlar</button>
+      <button role="tab" type="button" data-seg="s-lastik" aria-selected="false"><i data-ic="lastik"></i>Lastik</button>
       <button role="tab" type="button" data-seg="s-prime" aria-selected="false"><i data-ic="shield"></i>BMW Prime</button>
     </div>
 
@@ -634,6 +635,54 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
         </ul>
       </div>
     </div>
+    <div id="s-lastik" class="stack" hidden>
+      <div class="card stack" style="gap:12px">
+        <h2 class="hd"><i data-ic="lastik"></i>EV lastiği neden farklı</h2>
+        <ul class="rules">
+          <li><b>Ağırlık</b><span>Batarya aracı ağırlaştırır; lastiğin yük kapasitesi yüksek olmalı. Yanağında <strong>XL</strong> veya <strong>HL</strong> yazanları seç.</span></li>
+          <li><b>Tork</b><span>Elektrik motoru kalkışta ani ve yüksek tork verir; standart lastik daha çabuk aşınır. EV lastiklerinde güçlendirilmiş yanak ve aşınmaya dayanıklı bileşik var.</span></li>
+          <li><b>Sessizlik</b><span>Motor sesi olmadığı için yol sesi daha çok duyulur. İçinde ses emici köpük olan lastikler kabini belirgin şekilde sessizleştirir.</span></li>
+          <li><b>Menzil</b><span>Yuvarlanma direnci düştükçe batarya daha az harcar. AB etiketinde A veya B sınıfına bak.</span></li>
+        </ul>
+      </div>
+      <div class="card stack" style="gap:6px">
+        <h2 class="hd"><i data-ic="bolt"></i>Menzile etkisi</h2>
+        <div class="mini" style="margin-top:6px">
+          <div class="card tight" style="background:var(--surface2);box-shadow:none"><div class="num">%3–4</div><p class="note">Etiketteki yuvarlanma sınıfı bir kademe iyileşince kazanılan menzil</p></div>
+          <div class="card tight" style="background:var(--surface2);box-shadow:none"><div class="num">16–24 km</div><p class="note">EV'ye özel düşük dirençli lastikle büyük bir EV'de ek menzil</p></div>
+        </div>
+      </div>
+      <div class="card stack" style="gap:12px">
+        <h2 class="hd"><i data-ic="check"></i>Yanakta neye bakmalı</h2>
+        <ul class="rules">
+          <li><b>★</b><span>BMW'nin onayladığı orijinal ekipman lastiği. i4'e en uyumlu seçenek.</span></li>
+          <li><b>EV işareti</b><span>Pirelli <strong>Elect</strong>, Michelin <strong>EV</strong> (Pilot Sport EV, e·Primacy), Continental <strong>EV-Compatible</strong>, Goodyear <strong>Electric Drive / EV Ready</strong>, Hankook <strong>iON</strong>, Bridgestone <strong>Enliten</strong>.</span></li>
+          <li><b>Sessizlik</b><span><strong>Sound Absorber</strong>, Pirelli <strong>PNCS</strong>, Michelin <strong>Acoustic</strong>: lastik içinde ses emici köpük var demek.</span></li>
+          <li><b>3PMSF</b><span>Dağ ve kar tanesi simgesi; lastik ağır kar şartlarına uygun.</span></li>
+        </ul>
+        <p class="note">Lassa'daki "EV Ready" hem elektrikli hem benzinli araca uygun demek; EV'ye özel değil.</p>
+      </div>
+      <div class="card stack" style="gap:12px">
+        <h2 class="hd"><i data-ic="snow"></i>Mevsime göre EV modelleri</h2>
+        <ul class="rules">
+          <li><b>Yaz</b><span>Bridgestone Turanza 6 Enliten · Goodyear EfficientGrip Performance EV · Lassa Competus H/P 2 EV</span></li>
+          <li><b>4 mevsim</b><span>Hankook iON FlexClimate · Goodyear Vector 4Seasons Gen-3 EV · Bridgestone Turanza All Season 6 Enliten</span></li>
+          <li><b>Kış</b><span>Pirelli Scorpion Winter Elect · Bridgestone Blizzak 6 Enliten · Hankook Winter i*cept iON</span></li>
+        </ul>
+        <p class="note">Lastikcim'in Ekim 2026'da öne çıkardığı modeller. Fiyatlar ölçüye göre değişiyor, i4'ünün ölçüsünü seçerek bak.</p>
+      </div>
+      <div class="card">
+        <h2 class="hd" style="margin-bottom:12px"><i data-ic="pin"></i>Senin için</h2>
+        <ul class="rules">
+          <li><b>Ölçü</b><span>Sürücü kapısı direğindeki etikette lastik ölçün ve basınç değerleri yazar. Yenisini alırken yük ve hız endeksi bundan düşük olmasın.</span></li>
+          <li><b>Basınç</b><span>Düşük basınç yuvarlanma direncini artırır, menzili düşürür. Etiketteki değerde tut.</span></li>
+          <li><b>Kış</b><span>İstanbul'da 3PMSF işaretli 4 mevsim lastik çoğu kışa yeter; dağ yolu ve kar tatili için kış lastiği.</span></li>
+          <li><b>Değişim</b><span>Prime Premium'da sezonluk lastik değişimi ve saklama dahil; kış-yaz takımı kullanırsan işine yarar.</span></li>
+        </ul>
+      </div>
+      <p class="note"><a href="https://www.lastikcim.com.tr/sayfa/elektrikli-arac-lastikleri" target="_blank" rel="noopener">Lastikcim – Elektrikli Araç Lastikleri</a></p>
+    </div>
+
     <div id="s-prime" class="stack" hidden>
       <div class="card stack">
         <h2 class="hd"><i data-ic="shield"></i>BMW Prime</h2>
@@ -958,7 +1007,7 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
 </template>
 
 <script>
-window.GIC={
+window.GIC={lastik:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/>',
 check:'<rect x="5" y="3.5" width="14" height="17" rx="1.5"/><path d="M9 9.5l1.8 1.8L14.5 7.6M9 15h6"/>',
 bolt:'<path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/>',
 coin:'<circle cx="12" cy="12" r="8.5"/><path d="M10.5 7.5v8.5c2.1 0 3.6-1.4 3.6-3.4M8.8 10.4l4.6-1.5M8.8 13l4.6-1.5"/>',
