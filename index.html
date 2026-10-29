@@ -247,6 +247,20 @@ details.coll>summary .hd>span{display:flex;flex-direction:column}
 .chev2{width:22px;height:22px;stroke:var(--muted);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s;flex:none}
 details.coll[open]>summary .chev2{transform:rotate(180deg)}
 details.coll>summary:focus-visible{outline:2px solid var(--m1);outline-offset:4px}
+.accs{display:flex;flex-direction:column;margin-top:6px}
+details.acc{border-top:1px solid var(--line)}
+details.acc:first-child{border-top:0}
+details.acc>summary{list-style:none;display:grid;grid-template-columns:24px 1fr 22px;gap:12px;align-items:center;padding:14px 0;cursor:pointer;min-height:44px}
+details.acc>summary::-webkit-details-marker{display:none}
+details.acc>summary>i{color:var(--m1);display:flex}
+details.acc>summary>i svg{width:22px;height:22px}
+details.acc>summary b{display:block;font:700 16px var(--display);line-height:1.3}
+details.acc>summary .note{display:block;margin-top:2px}
+details.acc[open]>summary .chev2{transform:rotate(180deg)}
+details.acc>summary:focus-visible{outline:2px solid var(--m1);outline-offset:2px;border-radius:8px}
+.acc-b{padding:0 0 14px 36px}
+.acc-h{font:600 12px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.acc-b ol{margin:0 0 8px;padding-left:18px;display:flex;flex-direction:column;gap:6px;line-height:1.5}
 .flist{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .flist:empty{display:none}
 .flist .note{width:100%}
@@ -636,19 +650,41 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
       <div class="card">
         <div class="rows">
           <div class="prow pk"><span class="n"><span>Prime<small>Temel paket</small></span></span><span class="pkv">Yetkili serviste %25'e varan indirim, periyodik kontrol, silecek değişimi, yağ ve sıvı tamamlama</span></div>
-          <div class="prow pk"><span class="n"><span>Prime Plus<small>Temele ek</small></span></span><span class="pkv">Yıkama, otopark, yakıt indirimi ve 5Şarj istasyonlarında %20 şarj indirimi</span></div>
+          <div class="prow pk"><span class="n"><span>Prime Plus<small>Temele ek · senin için</small></span></span><span class="pkv">Yıkama, otopark, yakıt indirimi ve 5Şarj istasyonlarında %20 şarj indirimi</span></div>
           <div class="prow pk"><span class="n"><span>Prime Premium<small>Plus'a ek</small></span></span><span class="pkv">Vale, özel çekici ve transfer, elektrikli araç transferi, sezonluk lastik değişimi ve saklama, havalimanı ayrıcalıkları</span></div>
         </div>
         <p class="note" style="margin-top:10px">Güncel fiyatlar sitede yazmıyor; BMW Türkiye uygulamasında paket seçerken görünür.</p>
       </div>
-      <div class="card">
-        <h2 class="hd" style="margin-bottom:12px"><i data-ic="check"></i>Senin için</h2>
-        <ul class="rules">
-          <li><b>Uygun</b><span>Araç Borusan ithalatı olmalı ve aylık abonelik için 10 yaşından küçük olmalı. 2023 i4 bu şartı karşılar; ithalatçıyı ruhsattan veya serviste doğrula.</span></li>
-          <li><b>Kazanç</b><span>Asıl faydası servis indirimi ve Premium'daki çekici, lastik saklama ve batarya bittiğinde transfer.</span></li>
-          <li><b>Sınırlı</b><span>Elektrikli araçta bakım az, şarjını da çoğunlukla iş ve evde yapıyorsun. 5Şarj indirimi ancak yolda o ağı kullanırsan işe yarar.</span></li>
-          <li><b>Öneri</b><span>Aracı aldıktan sonra aylık Prime ile başla; servis veya lastik masrafı yaklaştığında üst pakete geç, iş bitince iptal et.</span></li>
-        </ul>
+      <div class="card stack" style="gap:6px">
+        <h2 class="hd"><i data-ic="check"></i>Prime Plus avantajların</h2>
+        <p class="muted">Yıkamaya ayda bir gitmen bile aboneliği karşılıyor. Aşağıdakiler Prime Plus'ta hakkın; nasıl kullanılacağını görmek için dokun.</p>
+        <div class="accs">
+          <details class="acc">
+            <summary><i data-ic="car"></i><span><b>Ücretsiz araç yıkama</b><span class="note">Anlaşmalı yıkama noktalarında, belirli aralıklarla</span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
+            <div class="acc-b"><p class="acc-h">Nasıl kullanılır</p><ol><li>BMW Türkiye uygulamasında (veya BMW'ni Bul sitesinde) BMW Prime bölümünü aç.</li><li>Yıkama avantajından sana en yakın anlaşmalı noktayı seç ve gün ile saat ayarlayıp rezervasyon yap.</li><li>Randevu saatinde aracınla git; abone olduğun araç ve plaka ile eşleşiyor.</li><li>Kalan hakkını ve hangi noktaların geçerli olduğunu yine Prime bölümünden takip et.</li></ol><p class="note">Kullanıcılar ayda 1 yıkama hakkı bildiriyor. Anlaşmalı firma zaman zaman değişebiliyor (Otovınn, Otokonfor gibi); gitmeden önce listeyi uygulamada kontrol et.</p></div>
+          </details>
+          <details class="acc">
+            <summary><i data-ic="plug"></i><span><b>5Şarj'da %20 şarj indirimi</b><span class="note">Prime Plus ve Premium'da Eylül 2026 itibarıyla %10'dan %20'ye çıktı</span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
+            <div class="acc-b"><p class="acc-h">Nasıl kullanılır</p><ol><li>Abone olduktan sonra BMW Prime indirim kartı adresine gönderilir; kart bilgileri karşılama e-postasında da yazar.</li><li>Kart elindeyken 5Şarj istasyonunda ödemeyi bu kartla yap. Kartın nasıl tanımlanacağı karşılama e-postasında anlatılıyor.</li><li>Uzun yolda rotanı 5Şarj istasyonlarına göre planlarsan indirimden en çok yararlanırsın.</li></ol><p class="note">Kart birkaç hafta içinde gelmezse Prime hattını ara; geciken kart şikâyetleri var.</p></div>
+          </details>
+          <details class="acc">
+            <summary><i data-ic="pin"></i><span><b>İSPARK'ta ücretsiz otopark</b><span class="note">İstanbul'daki İSPARK otoparklarında belirli sürelerle</span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
+            <div class="acc-b"><p class="acc-h">Nasıl kullanılır</p><ol><li>Hangi İSPARK otoparklarında ve kaç saat ücretsiz park edebileceğin uygulamadaki Prime avantajlarında yazıyor.</li><li>Otoparka girerken veya çıkarken avantajı orada anlatıldığı şekilde kullan.</li></ol><p class="note">Süre ve kapsam dönemsel olarak değişebiliyor; kullanmadan önce uygulamada kontrol et.</p></div>
+          </details>
+          <details class="acc">
+            <summary><i data-ic="wrench"></i><span><b>Yetkili serviste %25'e varan indirim</b><span class="note">Orijinal parça ve işçilikte</span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
+            <div class="acc-b"><p class="acc-h">Nasıl kullanılır</p><ol><li>BMW yetkili servisinden randevu alırken Prime abonesi olduğunu söyle.</li><li>İndirim faturaya kendiliğinden yansır; faturayı alırken Prime indiriminin uygulandığını kontrol et.</li></ol><p class="note">Lastik, fren, cam gibi masraflı işlerde fark belirgin oluyor.</p></div>
+          </details>
+          <details class="acc">
+            <summary><i data-ic="bakim"></i><span><b>Ücretsiz periyodik kontrol, silecek değişimi ve sıvı tamamlama</b><span class="note">Yetkili serviste</span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
+            <div class="acc-b"><p class="acc-h">Nasıl kullanılır</p><ol><li>Servis randevusu alırken periyodik kontrolü ve silecek değişimini Prime kapsamında istediğini belirt.</li><li>Servise uğradığında cam suyu gibi sıvıların tamamlanmasını iste.</li></ol><p class="note">i4 elektrikli olduğu için motor yağı tamamlama sende geçerli değil.</p></div>
+          </details>
+          <details class="acc">
+            <summary><i data-ic="fuel"></i><span><b>Akaryakıtta %3 indirim</b><span class="note">BMW Prime kartıyla temassız ödemede</span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
+            <div class="acc-b"><p class="acc-h">Nasıl kullanılır</p><ol><li>Akaryakıt istasyonunda ödemeyi BMW Prime kartıyla temassız yap; indirim anında düşer.</li></ol><p class="note">i4'te işine yaramaz. Kartın başka bir araçta kullanılıp kullanılamayacağını Prime hattına sorabilirsin.</p></div>
+          </details>
+        </div>
+        <p class="note">Hak sayıları ve kapsam BMW tarafından değiştirilebiliyor; kesin bilgi BMW Türkiye uygulamasındaki Prime bölümünde. Abonelik için araç Borusan ithalatı olmalı; ithalatçıyı ruhsattan veya serviste doğrula.</p>
       </div>
       <div class="card stack" style="gap:8px">
         <h3 class="hd"><i data-ic="phone"></i>Nasıl abone olunur</h3>
