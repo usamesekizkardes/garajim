@@ -746,7 +746,7 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
     <div id="g-empty" class="card stack" hidden style="text-align:left">
       <h2>Garajın boş</h2>
       <p class="muted">Takip etmek istediğin ilk aracı ekle; bakım, belge ve kayıtlar araç bazında tutulur.</p>
-      <div class="data-acts"><button class="btn primary" type="button" data-sheet-add>Araç ekle</button><button class="btn" type="button" onclick="document.getElementById('data-import').click()">Yedekten yükle</button></div>
+      <div class="data-acts"><button class="btn primary" type="button" data-sheet-add>Araç ekle</button><button class="btn" type="button" onclick="document.getElementById('data-card').open=true;document.getElementById('data-import').click()">Yedekten yükle</button></div>
     </div>
 
     <div id="g-body" class="stack" style="gap:12px" hidden>
@@ -857,16 +857,17 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
       </details>
 
     </div>
-    <section class="card stack" id="data-card" style="gap:10px">
-      <h2 class="hd"><i data-ic="folder"></i>Veriler</h2>
-      <p class="note" id="data-info">Kayıtların ve dosyaların yalnızca bu telefonda saklanır.</p>
+    <details class="card coll" id="data-card">
+      <summary><span class="hd"><i data-ic="folder"></i><span><b class="coll-t">Veriler</b><span class="note" id="data-info">Yalnızca bu telefonda saklanır</span></span></span><svg class="chev2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></summary>
+      <div class="stack" style="gap:10px;margin-top:12px">
       <div class="data-acts">
         <button class="btn" type="button" id="data-export">Yedeği indir</button>
         <label class="btn" id="data-import-lbl"><input type="file" id="data-import" accept="application/json,.json" class="vh">Yedekten yükle</label>
       </div>
       <p class="note" id="data-msg" hidden></p>
       <p class="note">Telefon değiştirirken veya tarayıcı verilerini silmeden önce yedeği indir.</p>
-    </section>
+      </div>
+    </details>
     <p class="note" id="g-status"></p>
   </main>
 </div>
@@ -1739,11 +1740,13 @@ paintIcons();
 (function(){
   function $(i){return document.getElementById(i)}
   var L=window.claudeLocal;
-  function msg(t,err){var m=$('data-msg');m.textContent=t;m.hidden=!t;m.className='note'+(err?' err':'')}
+  function msg(t,err){if(t)$('data-card').open=true;var m=$('data-msg');m.textContent=t;m.hidden=!t;m.className='note'+(err?' err':'')}
   function kb(n){return n>1048576?(n/1048576).toFixed(1).replace('.',',')+' MB':Math.round(n/1024)+' KB'}
   function info(){L.ready.then(function(){var c=L.count();return L.usage().then(function(u){
-    $('data-info').textContent='Yalnızca bu telefonda saklanır · '+c.files+' dosya'+(u&&u.usage?' · '+kb(u.usage)+' kullanılıyor':'')})}).catch(function(){})}
+    $('data-info').textContent='Bu telefonda · '+c.files+' dosya'+(u&&u.usage?' · '+kb(u.usage):'')})}).catch(function(){})}
   info();
+  try{if(localStorage.getItem('garaj-veriler')==='1')$('data-card').open=true}catch(e){}
+  $('data-card').addEventListener('toggle',function(){try{localStorage.setItem('garaj-veriler',this.open?'1':'0')}catch(e){}});
   $('data-export').addEventListener('click',function(){var b=this;b.disabled=true;msg('Yedek hazırlanıyor…');
     L.exportAll().then(function(blob){var d=new Date(),n='garajim-yedek-'+d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')+'.json';
       return L.saveFile(n,blob).then(function(){msg('Yedek hazır ('+kb(blob.size)+'). Google Drive gibi telefon dışında bir yere kaydet.')})})
