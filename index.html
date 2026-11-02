@@ -261,6 +261,13 @@ details.acc>summary:focus-visible{outline:2px solid var(--m1);outline-offset:2px
 .acc-b{padding:0 0 14px 36px}
 .acc-h{font:600 12px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
 .acc-b ol{margin:0 0 8px;padding-left:18px;display:flex;flex-direction:column;gap:6px;line-height:1.5}
+.spec-h{display:flex;align-items:center;gap:8px;font:600 12px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 0}
+.spec-h svg.gi{width:18px;height:18px;color:var(--m1)}
+dl.spec{margin:0;display:flex;flex-direction:column}
+dl.spec>div{display:grid;grid-template-columns:minmax(110px,40%) 1fr;gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+dl.spec>div:first-child{border-top:0}
+dl.spec dt{color:var(--muted);font-size:14px}
+dl.spec dd{margin:0;font-weight:600;font-size:14.5px;line-height:1.4;font-variant-numeric:tabular-nums}
 .flist{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .flist:empty{display:none}
 .flist .note{width:100%}
@@ -625,6 +632,16 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
         <div><div class="label lic"><i data-ic="gauge"></i>0–100</div><div class="num">7,5 sn</div><p class="note">Arkadan itiş</p></div>
         <div><div class="label lic"><i data-ic="plug"></i>AC şarj</div><div class="num">11 kW</div><p class="note">Tam dolum ~8 sa</p></div>
         <div><div class="label lic"><i data-ic="bolt"></i>DC şarj</div><div class="num">205 kW</div><p class="note">%10→80 ~30 dk</p></div>
+      </div>
+      <div class="card stack" style="gap:8px">
+        <h2 class="hd"><i data-ic="car"></i>Teknik özellikler</h2>
+        <p class="spec-h lic"><i data-ic="bolt"></i>Motor ve performans</p>
+        <dl class="spec"><div><dt>Güç</dt><dd>160 kW · 218 hp</dd></div><div><dt>Tork</dt><dd>430 Nm</dd></div><div><dt>0–100 km/s</dt><dd>7,5 sn</dd></div><div><dt>Azami hız</dt><dd>190 km/s</dd></div><div><dt>Çekiş</dt><dd>Arkadan itiş, tek motor</dd></div><div><dt>Motor tipi</dt><dd>Akım uyarımlı senkron motor (5. nesil eDrive); nadir toprak mıknatısı yok</dd></div></dl>
+        <p class="spec-h lic"><i data-ic="battery"></i>Batarya</p>
+        <dl class="spec"><div><dt>Kapasite</dt><dd>83,9 kWh brüt · 80,7 kWh net</dd></div><div><dt>Mimari</dt><dd>400 V (yaklaşık 400–477 V arası)</dd></div><div><dt>Hücre</dt><dd>Lityum iyon, NMC kimya, prizmatik hücre</dd></div><div><dt>Yapı</dt><dd>7 modül, 324 hücre</dd></div><div><dt>Isıtma</dt><dd>Isı pompası standart</dd></div><div><dt>Şarj</dt><dd>AC 11 kW · DC en fazla 205 kW</dd></div></dl>
+        <p class="spec-h lic"><i data-ic="gauge"></i>Boyutlar ve ağırlık</p>
+        <dl class="spec"><div><dt>Uzunluk</dt><dd>4.783 mm</dd></div><div><dt>Genişlik</dt><dd>1.852 mm (aynasız)</dd></div><div><dt>Yükseklik</dt><dd>1.448 mm</dd></div><div><dt>Dingil mesafesi</dt><dd>2.856 mm</dd></div><div><dt>Boş ağırlık</dt><dd>~2.050 kg</dd></div><div><dt>Bagaj</dt><dd>470 L · koltuklar yatınca 1.290 L</dd></div><div><dt>Hava sürtünmesi</dt><dd>Cd 0,24</dd></div></dl>
+        <p class="note">Türkiye versiyonu gücü yazılımla 218 hp'ye sınırlanmış eDrive40; batarya, şarj ve boyutlar yurt dışı sürümüyle aynı. Ruhsattaki değerler esas alınır.</p>
       </div>
       <div class="card">
         <ul class="rules">
