@@ -270,6 +270,9 @@ details.acc>summary:focus-visible{outline:2px solid var(--m1);outline-offset:2px
 .appi{background:var(--surface);border-radius:3px;padding:14px}
 .appi strong{display:block}
 .appi span{font-size:13px;color:var(--muted)}
+a.appi{text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent}
+a.appi:active{transform:scale(.98)}
+a.appi:focus-visible{outline:2px solid var(--m1);outline-offset:2px}
 .bars{display:flex;flex-direction:column;gap:14px}
 .bar .top2{display:flex;justify-content:space-between;gap:8px;font-size:14px}
 .bar .top2 b{font:600 16px var(--display);font-variant-numeric:tabular-nums}
@@ -607,15 +610,16 @@ main.view.sl-l{animation:slL .22s cubic-bezier(.2,.7,.2,1)}
         </div>
         <p class="note" style="margin-top:10px">TL/kWh, Ağustos–Ekim 2026. Şarjdan önce uygulamadaki güncel fiyata bak.</p>
       </div>
-      <h2 class="hd"><i data-ic="phone"></i>Telefona kur</h2>
+      <h2 class="hd"><i data-ic="phone"></i>Uygulamalarım</h2>
       <div class="apps">
-        <div class="appi"><i data-ic="phone"></i><strong>Trugo</strong><span>Evdeki istasyon</span></div>
-        <div class="appi"><i data-ic="phone"></i><strong>Tunçmatik</strong><span>Evdeki istasyon</span></div>
-        <div class="appi"><i data-ic="phone"></i><strong>ZES · Voltrun</strong><span>Yolda hızlı şarj</span></div>
-        <div class="appi"><i data-ic="phone"></i><strong>Tesla</strong><span>Supercharger için</span></div>
-        <div class="appi"><i data-ic="phone"></i><strong>PlugShare</strong><span>Tüm ağlar tek harita</span></div>
-        <div class="appi"><i data-ic="phone"></i><strong>ABRP</strong><span>Uzun yol planı</span></div>
+        <a class="appi" href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.togg.trugoapp;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.togg.trugoapp;end"><i data-ic="phone"></i><strong>Trugo</strong><span>Evdeki istasyon</span></a>
+        <a class="appi" href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.doldurmobile.tuncmatik;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.doldurmobile.tuncmatik;end"><i data-ic="phone"></i><strong>Tunçmatik</strong><span>Evdeki istasyon</span></a>
+        <a class="appi" href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.voltrun;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.voltrun;end"><i data-ic="phone"></i><strong>Voltrun</strong><span>En ucuz hızlı şarj</span></a>
+        <a class="appi" href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.esarj.mobile;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.esarj.mobile;end"><i data-ic="phone"></i><strong>Eşarj</strong><span>İstanbul'da yaygın</span></a>
+        <a class="appi" href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.lixhium.lixhiumproapp;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.lixhium.lixhiumproapp;end"><i data-ic="phone"></i><strong>Lixhium</strong><span>Tüm ağlar tek uygulama</span></a>
+        <a class="appi" href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.rea.bmw.online;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.rea.bmw.online;end"><i data-ic="phone"></i><strong>BMW Türkiye</strong><span>Prime ve servis</span></a>
       </div>
+      <p class="note">Dokununca uygulama açılır; telefonda yüklü değilse Google Play sayfası açılır. Yolda işine yarayabilecek diğerleri: ZES, Tesla (Supercharger), PlugShare, ABRP.</p>
     </div>
 
     <div id="s-arac" class="stack">
